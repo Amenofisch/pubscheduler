@@ -1,0 +1,16 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Amenofisch\Pubscheduler\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
+
+  Amenofisch\Pubscheduler\Commands\PublicationCommand:
+    tags:
+      - name: console.command
+        command: 'pubscheduler:check'
+        description: 'A command that does iterates over all objects and checks their publications and adjusts them accordingly.'
+        schedulable: true

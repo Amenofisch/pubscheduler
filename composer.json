@@ -1,0 +1,21 @@
+{
+    "name": "amenofisch/pubscheduler",
+    "description": "This plugin allows scheduling the visibility of content elements and pages in Typo3.",
+    "type": "typo3-cms-extension",
+    "license": [
+        "GPL-2.0-or-later"
+    ],
+    "require": {
+        "typo3/cms-core": "^12.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Amenofisch\\Pubscheduler\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "pubscheduler"
+        }
+    }
+}

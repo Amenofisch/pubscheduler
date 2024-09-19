@@ -1,0 +1,20 @@
+services:
+  application:
+    user: application
+    build:
+      context: config/docker/development/application
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    volumes:
+      - ./:/app
+      - $HOME/.ssh:/home/application/.ssh
+      - $HOME/.gitconfig:/etc/gitconfig
+      - ${SSH_AUTH_SOCK:-/ssh-agent}:/ssh-agent
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    cap_add:
+      - SYS_PTRACE
+    privileged: true
+    env_file:
+      - config/docker/timezone.env
